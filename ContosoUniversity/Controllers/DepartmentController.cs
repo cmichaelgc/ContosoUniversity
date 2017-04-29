@@ -85,7 +85,7 @@ namespace ContosoUniversity.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(int? id, byte[] rowVersion)
+        public async Task<ActionResult> Edit(int? id, byte[] RowVersion)
         {
             string[] fieldsToBind = new string[] { "Name", "Budget", "StartDate", "InstructorID", "RowVersion" };
 
@@ -109,7 +109,7 @@ namespace ContosoUniversity.Controllers
             {
                 try
                 {
-                    db.Entry(departmentToUpdate).OriginalValues["RowVersion"] = rowVersion;
+                    db.Entry(departmentToUpdate).OriginalValues["RowVersion"] = RowVersion;
                     await db.SaveChangesAsync();
 
                     return RedirectToAction("Index");
